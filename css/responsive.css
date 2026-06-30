@@ -1,0 +1,63 @@
+/* ══════════════════════════════════════════
+   CYBER SERPENT X — responsive.css
+   ══════════════════════════════════════════ */
+
+/* ── Tablet ───────────────────────────── */
+@media (max-width: 768px) {
+  .diff-options { gap: 8px; }
+  .diff-btn { min-width: 88px; padding: 10px 14px; }
+
+  .go-stats { padding: 18px 20px; gap: 12px 20px; }
+  .go-stat-value { font-size: 1.15rem; }
+}
+
+/* ── Mobile ───────────────────────────── */
+@media (max-width: 520px) {
+  /* Show mobile d-pad */
+  .mobile-controls { display: flex; }
+
+  .logo-title { font-size: 2.2rem; }
+
+  .diff-options { flex-direction: column; gap: 8px; }
+  .diff-btn { flex-direction: row; justify-content: space-between; min-width: 220px; }
+
+  .hud { padding: 8px 14px; }
+  .hud-value { font-size: .95rem; }
+
+  .powerup-bar { gap: 5px; padding: 5px 8px; }
+  .pu-slot { font-size: .5rem; padding: 3px 7px; }
+
+  .go-stats {
+    grid-template-columns: 1fr 1fr;
+    min-width: unset; width: 100%;
+    padding: 14px 16px;
+  }
+  .go-stat-value { font-size: 1rem; }
+
+  .overlay-box { padding: 28px 24px; }
+  .overlay-title { font-size: 1.4rem; }
+
+  .stats-grid { grid-template-columns: 1fr; }
+
+  .mc-btn { width: 52px; height: 52px; }
+}
+
+/* ── Landscape mobile ─────────────────── */
+@media (max-height: 480px) and (orientation: landscape) {
+  .menu-content { gap: 18px; padding: 20px 16px; }
+  .logo-title { font-size: 1.6rem; }
+  .logo-tagline { display: none; }
+  .diff-options { flex-direction: row; gap: 6px; }
+  .diff-btn { min-width: 80px; padding: 8px 10px; }
+  .menu-buttons { gap: 8px; }
+  .btn-primary, .btn-secondary { padding: 10px; font-size: .75rem; }
+
+  .mobile-controls { display: flex; }
+  .mc-btn { width: 44px; height: 44px; font-size: .9rem; }
+  .powerup-bar { padding: 4px 8px; }
+}
+
+/* ── High-res desktop cap ─────────────── */
+@media (min-width: 1200px) {
+  .menu-content { gap: 44px; }
+}

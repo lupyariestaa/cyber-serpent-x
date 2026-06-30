@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cyber Serpent X</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Share+Tech+Mono&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/responsive.css" />
+</head>
+<body>
+
+  <!-- ══════════════ SCREENS ══════════════ -->
+
+  <!-- MENU -->
+  <div id="screen-menu" class="screen active">
+    <div class="menu-bg-grid"></div>
+    <div class="menu-content">
+      <div class="logo-block">
+        <div class="logo-eyebrow">ROBOT LABORATORY</div>
+        <h1 class="logo-title">CYBER<br/><span class="accent">SERPENT X</span></h1>
+        <p class="logo-tagline">Become The Ultimate Cyber Snake</p>
+      </div>
+
+      <div class="difficulty-block">
+        <div class="diff-label">SELECT DIFFICULTY</div>
+        <div class="diff-options">
+          <button class="diff-btn" data-diff="casual">
+            <span class="diff-name">CASUAL</span>
+            <span class="diff-desc">Relaxed pace</span>
+          </button>
+          <button class="diff-btn active" data-diff="normal">
+            <span class="diff-name">NORMAL</span>
+            <span class="diff-desc">Standard challenge</span>
+          </button>
+          <button class="diff-btn" data-diff="hardcore">
+            <span class="diff-name">HARDCORE</span>
+            <span class="diff-desc">Max velocity</span>
+          </button>
+        </div>
+      </div>
+
+      <div class="menu-buttons">
+        <button class="btn-primary" id="btn-play">▶ PLAY</button>
+        <button class="btn-secondary" id="btn-stats">STATISTICS</button>
+        <button class="btn-secondary" id="btn-settings">SETTINGS</button>
+      </div>
+    </div>
+    <div class="scan-line"></div>
+  </div>
+
+  <!-- GAME -->
+  <div id="screen-game" class="screen">
+    <div class="hud">
+      <div class="hud-item">
+        <span class="hud-label">SCORE</span>
+        <span class="hud-value" id="hud-score">0</span>
+      </div>
+      <div class="hud-item center">
+        <span class="hud-label">LEVEL</span>
+        <span class="hud-value" id="hud-level">1</span>
+      </div>
+      <div class="hud-item right">
+        <span class="hud-label">BEST</span>
+        <span class="hud-value" id="hud-high">0</span>
+      </div>
+    </div>
+
+    <div class="powerup-bar" id="powerup-bar">
+      <div class="pu-slot" id="pu-shield">🛡 SHIELD</div>
+      <div class="pu-slot" id="pu-magnet">🧲 MAGNET</div>
+      <div class="pu-slot" id="pu-slow">⏳ SLOW</div>
+      <div class="pu-slot" id="pu-double">✕2 DOUBLE</div>
+    </div>
+
+    <div class="canvas-wrap">
+      <canvas id="game-canvas"></canvas>
+      <div id="overlay-pause" class="overlay hidden">
+        <div class="overlay-box">
+          <div class="overlay-title">PAUSED</div>
+          <button class="btn-primary" id="btn-resume">RESUME</button>
+          <button class="btn-secondary" id="btn-quit">QUIT</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="mobile-controls" id="mobile-controls">
+      <div class="mc-row">
+        <button class="mc-btn" id="mc-up">▲</button>
+      </div>
+      <div class="mc-row">
+        <button class="mc-btn" id="mc-left">◀</button>
+        <button class="mc-btn mc-center" id="mc-pause">⏸</button>
+        <button class="mc-btn" id="mc-right">▶</button>
+      </div>
+      <div class="mc-row">
+        <button class="mc-btn" id="mc-down">▼</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- GAME OVER -->
+  <div id="screen-gameover" class="screen">
+    <div class="menu-bg-grid"></div>
+    <div class="gameover-content">
+      <div class="gameover-title" id="go-title">SYSTEM FAILURE</div>
+      <div class="gameover-subtitle">CONNECTION LOST</div>
+      <div class="go-stats">
+        <div class="go-stat">
+          <span class="go-stat-label">FINAL SCORE</span>
+          <span class="go-stat-value" id="go-score">0</span>
+        </div>
+        <div class="go-stat">
+          <span class="go-stat-label">HIGH SCORE</span>
+          <span class="go-stat-value" id="go-high">0</span>
+        </div>
+        <div class="go-stat">
+          <span class="go-stat-label">LEVEL REACHED</span>
+          <span class="go-stat-value" id="go-level">1</span>
+        </div>
+        <div class="go-stat">
+          <span class="go-stat-label">CORES EATEN</span>
+          <span class="go-stat-value" id="go-eaten">0</span>
+        </div>
+      </div>
+      <div id="go-newbest" class="new-best hidden">⚡ NEW HIGH SCORE ⚡</div>
+      <div class="menu-buttons">
+        <button class="btn-primary" id="btn-retry">RETRY</button>
+        <button class="btn-secondary" id="btn-menu-go">MAIN MENU</button>
+      </div>
+    </div>
+    <div class="scan-line"></div>
+  </div>
+
+  <!-- STATISTICS -->
+  <div id="screen-stats" class="screen">
+    <div class="menu-bg-grid"></div>
+    <div class="sub-screen-content">
+      <h2 class="sub-title">STATISTICS</h2>
+      <div class="stats-grid" id="stats-grid"></div>
+      <button class="btn-secondary" id="btn-stats-back">← BACK</button>
+    </div>
+    <div class="scan-line"></div>
+  </div>
+
+  <!-- SETTINGS -->
+  <div id="screen-settings" class="screen">
+    <div class="menu-bg-grid"></div>
+    <div class="sub-screen-content">
+      <h2 class="sub-title">SETTINGS</h2>
+      <div class="settings-list">
+        <div class="setting-row">
+          <span class="setting-label">SOUND FX</span>
+          <button class="toggle-btn" id="toggle-sound" data-key="sound">ON</button>
+        </div>
+        <div class="setting-row">
+          <span class="setting-label">MUSIC</span>
+          <button class="toggle-btn" id="toggle-music" data-key="music">ON</button>
+        </div>
+      </div>
+      <button class="btn-secondary" id="btn-settings-back">← BACK</button>
+    </div>
+    <div class="scan-line"></div>
+  </div>
+
+  <!-- Scripts (order matters) -->
+  <script src="js/storage.js"></script>
+  <script src="js/settings.js"></script>
+  <script src="js/food.js"></script>
+  <script src="js/snake.js"></script>
+  <script src="js/game.js"></script>
+  <script src="js/ui.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
